@@ -1,0 +1,101 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'appBar',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: MyPage(),
+    );
+  }
+}
+
+class MyPage extends StatelessWidget {
+  const MyPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      //backgroundColor: Colors.amber[100],
+      appBar: AppBar(
+        title: Text('appBar icon menu'),
+        centerTitle: true,
+        //backgroundColor: Colors.amber,
+        elevation: 0.0, //그림자 느낌
+        actions: [
+          IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {
+                print('shopping_cart button is clicked');
+              }
+          ),
+          IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                print('search button is clicked');
+              }
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text('Naruto'),
+              accountEmail: Text('naruto@gmail.com'),
+              onDetailsPressed: (){ print('arrow is clicked'); },
+              decoration: BoxDecoration(
+                color: Colors.red[300],
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(40),
+                  bottomRight: Radius.circular(40),
+                )
+              ),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('test.png'),
+                backgroundColor: Colors.white,
+              ),
+              otherAccountsPictures: [
+                CircleAvatar(
+                  backgroundImage: AssetImage('account1.png'),
+                  backgroundColor: Colors.white,
+                ),
+                // CircleAvatar(
+                //   backgroundImage: AssetImage('account2.png'),
+                //   backgroundColor: Colors.white,
+                // ),
+                // CircleAvatar(
+                //   backgroundImage: AssetImage('account3.png'),
+                //   backgroundColor: Colors.white,
+                // ),
+              ],
+
+            ),
+          ],
+        ),
+      ),
+      body: Center(
+        child: TextButton(
+            child: Text('show me',
+              style: TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('new snackBar')));
+            },
+        ),
+      ),
+    );
+  }
+}

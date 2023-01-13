@@ -1,0 +1,136 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'BBANTO',
+      home: Grade(),
+    );
+  }
+}
+
+class Grade extends StatelessWidget {
+  const Grade({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.amber[100],
+      appBar: AppBar(
+        title: Text('NARUTO'),
+        centerTitle: true,
+        backgroundColor: Colors.amber,
+        elevation: 0.0, //그림자 느낌
+      ),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(30, 40, 0, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('naruto.gif'),
+                radius: 60.0,
+              ),
+            ),
+            Divider(
+              height: 60,
+              color: Colors.grey,
+              thickness: 0.5,
+              endIndent: 30.0,),
+            Text('Name',
+              style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 2.0,
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            Text('NARUTO',
+              style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 2.0,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            SizedBox(height: 20,),
+            Text('Power level',
+              style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 2.0,
+                fontSize: 10.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            Text('14',
+              style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 2.0,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            SizedBox(height: 30,),
+            Row(
+              children: [
+                Icon(Icons.check_circle_outline),
+                SizedBox(width: 10,),
+                Text('using shadow clone',
+                  style: TextStyle(
+                    fontSize: 16,
+                    letterSpacing: 1,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Icon(Icons.check_circle_outline),
+                SizedBox(width: 10,),
+                Text('using monster',
+                  style: TextStyle(
+                    fontSize: 16,
+                    letterSpacing: 1,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Icon(Icons.check_circle_outline),
+                SizedBox(width: 10,),
+                Text('main character',
+                  style: TextStyle(
+                    fontSize: 16,
+                    letterSpacing: 1,
+                  ),
+                ),
+              ],
+            ),
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('test.png'),
+                radius: 40,
+                backgroundColor: Colors.amber,
+              ),
+            ),
+
+
+          ],
+        ),
+      ),
+
+    );
+  }
+}
